@@ -9,7 +9,7 @@
       if (isset($_GET['nrp'])) {
           //query SQL
           $nrp_upd = $_GET['nrp'];
-          $query = "DELETE FROM mhs WHERE nrp = '$nrp_upd'"; 
+          $query = "DELETE FROM destinasi WHERE ID_DESTINASI = '$nrp_upd'"; 
 
           //eksekusi query
           $result = mysqli_query(connection(),$query);

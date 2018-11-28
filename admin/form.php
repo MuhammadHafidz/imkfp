@@ -15,17 +15,16 @@
       $kota = $_POST['kota'];
       $provinsi = $_POST['provinsi'];
       $rate = $_POST['rate'];
-
+      $file_tmp = $_FILES['gambar']['tmp_name'];	
+      $gambar = $_FILES['gambar']['name'];
       //ambil gambar
-      
         $ekstensi_diperbolehkan	= array('png','jpg');
-        $gambar = $_FILES['file']['name'];
         $x = explode('.', $nama);
         $ekstensi = strtolower(end($x));
-        $ukuran	= $_FILES['file']['size'];
-        $file_tmp = $_FILES['file']['tmp_name'];	
-        if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-          move_uploaded_file($file_tmp, '../img/upload/'.$gambar);
+
+
+       
+        if (move_uploaded_file($file_tmp, '../img/upload/'.$gambar)){
           
           //query SQL
           $query = "INSERT INTO destinasi (NAMA, DESKRIPSI, HARGA, LOKASI, ALAMAT, KOTA, PROVINSI, GAMBAR, RATE) VALUES('$nama','$deskripsi','$harga','$lokasi','$alamat','$kota','$provinsi','$gambar','$rate')"; 
@@ -42,17 +41,6 @@
           $status = 'err';
         }
       
-      //query SQL
-      $query = "INSERT INTO mhs (NAMA, DESKRIPSI, HARGA, LOKASI, ALAMAT, KOTA, PROVINSI, GAMBAR, RATE) VALUES('$nama','$deskripsi','$harga','$lokasi','$alamat','$kota','$provinsi','$gambar','$rate')"; 
-
-      //eksekusi query
-      $result = mysqli_query(connection(),$query);
-      if ($result) {
-        $status = 'ok';
-      }
-      else{
-        $status = 'err';
-      }
   }
 
 ?>
@@ -88,7 +76,7 @@
            ?>
 
           <h2 style="margin: 30px 0 30px 0;">New Destinasi</h2>
-          <form action="form.php" method="POST">
+          <form action="form.php" method="POST" enctype="multipart/form-data">
             
             <div class="form-group">
               <label>NAMA</label>
@@ -116,10 +104,6 @@
               <input type="text" class="form-control" placeholder="Alamat" name="alamat" required="required">
             </div>
             <div class="form-group">
-              <label>KOTA</label>
-              <input type="text" class="form-control" placeholder="Kota" name="kota" required="required">
-            </div>
-            <div class="form-group">
               <label>PROVINSI</label>
               <select class="form-control" id="provinsi" name="provinsi">
                 <option value="Jawa Timur">JATIM</option>
@@ -129,8 +113,12 @@
               </select>
             </div>
             <div class="form-group">
+              <label>KOTA</label>
+              <input type="text" class="form-control" placeholder="Kota" name="kota" required="required">
+            </div>
+            <div class="form-group">
               <label>GAMBAR</label>
-              <input type="file" class="form-control" placeholder="" name="file" required="required">
+              <input type="file" class="form-control" placeholder="" name="gambar" required="required">
             </div>
             <div class="form-group">
               <label>RATE</label>
