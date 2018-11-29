@@ -8,7 +8,7 @@
                   <nav class="classy-navbar justify-content-between" id="palatinNav">
 
                       <!-- Nav brand -->
-                      <a href="index.html" class="nav-brand"><img src="img/core-img/logo2.png" style="width:300px; height:auto;" alt=""></a>
+                      <a href="index.php" class="nav-brand"><img src="img/core-img/logo2.png" style="width:300px; height:auto;" alt=""></a>
 
                       <!-- Navbar Toggler -->
                       <div class="classy-navbar-toggler">
@@ -27,14 +27,14 @@
                           <div class="classynav">
                               <ul>
                                   <li>
-                                      <a id="#search">
+                                      <a href="#search">
                                           <i class="fas fa-search" style="font-size: 18px;"></i>
                                       </a>
                                   </li>
-                                  <li><a href="index.html">Home</a></li>
-                                  <li><a href="destinasi.html">Destinasi</a></li>
-                                  <li><a href="perlengkapan.html">Perlengkapan</a></li>
-                                  <li><a href="about-us.html">About Us</a></li>
+                                  <li><a href="index.php">Home</a></li>
+                                  <li><a href="destinasi.php">Destinasi</a></li>
+                                  <li><a href="perlengkapan.php">Perlengkapan</a></li>
+                                  <li><a href="about-us.php">About Us</a></li>
                               </ul>
 
                               <!-- Button -->

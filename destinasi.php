@@ -29,9 +29,9 @@
         </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <span id="navbar"></span>
-    <!-- ##### Header Area End ##### -->
+    <?php include 'navbar.php'; ?>
+
+
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/bg-7.jpg);">
         <div class="bradcumbContent">
@@ -210,74 +210,8 @@
     <!-- Modal End Here -->
 
     
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
+    <?php include 'footer.php'; ?>
 
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-lg-8">
-                    <div class="footer-widget-area mt-50">
-                        <a href="#" class="d-block mb-5"><img src="img/core-img/logo1.png" style="width:174px; height:auto;"
-                                alt=""></a>
-                        <p>Monggo kemah adalah website yang bertujuan untuk memberi informasi kepada khalayak ramai
-                            tentang destinasi untuk camping. Latar belakang terbentuknya website ini adalah Tugas
-                            kuliah. </p>
-                    </div>
-                </div>
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-md-12 col-lg-4">
-                    <div class="footer-widget-area mt-50">
-                        <h6 class="widget-title mb-5">Find us on the map</h6>
-                        <img src="img/bg-img/map-indo.png" class="invert">
-                    </div>
-                </div>
-
-                <!-- Footer Widget Area
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="footer-widget-area mt-50">
-                        <h6 class="widget-title mb-5">Subscribe untuk Mengikuti Kami</h6>
-                        <form action="#" method="post" class="subscribe-form">
-                            <input type="email" name="subscribe-email" id="subscribeemail" placeholder="Your E-mail">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div> -->
-
-                <!-- Copywrite Text -->
-                <div class="col-12">
-                    <div class="copywrite-text mt-30">
-                        <p><a href="#">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                    aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <a href="#"> Edited By Haff & Roziq</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
-
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-3.3.1.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-    <script>
-        $("#navbar").load("navbar.html");
-    </script>
 </body>
-
+<?php include 'script.php' ?>
 </html>

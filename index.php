@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <span id="navbar"></span>
+    <?php include 'navbar.php' ?>
 
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
@@ -46,7 +46,7 @@
                                 <div class="line" data-animation="fadeInUp" data-delay="300ms"></div>
                                 <h2 data-animation="fadeInUp" data-delay="500ms">Monggo Kemah</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms">Cari tempat yang Pas untuk Berkemah di Tepi Pantai, Gunung, Danau dan tempat lainnya Bersama Keluarga, Teman atau Pasangan anda</p>
-                                <a  class="btn palatin-btn mt-50" data-animation="fadeInUp" data-delay="900ms" href="destinasi.html">Sekarang Juga</a>
+                                <a  class="btn palatin-btn mt-50" data-animation="fadeInUp" data-delay="900ms" href="destinasi.php">Sekarang Juga</a>
                             </div>
                         </div>
                     </div>
@@ -58,8 +58,6 @@
     </section>
     <!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Book Now Area Start ##### -->
-    <!-- ##### Book Now Area End ##### -->
 
     <!-- ##### About Us Area Start ##### -->
     <section class="about-us-area">
@@ -70,7 +68,7 @@
                     <div class="about-text text-center mb-100">
                         <div class="section-heading text-center">
                             <div class="line-"></div>
-                            <h2>Mau Kemana Kita ?</h2>
+														<h2>Mau Kemana Kita ?</h2>
                         </div>
                         <p>Hutan, Sawah, Gunung, Lautan ?? Semua keputusan ada di tangan Anda!. Anda bisa memilih destinasi sesuka anda, Kami telah menyajikan berbagai macam destinasi untuk camping. Butuh Transportasi ? Tidak masalah, Kami akan membantu anda dengan memberika informasi penyedia layanan transportasi yang siap mengantar anda pergi atau kembali.</p>
                         <div class="about-key-text">
@@ -141,66 +139,14 @@
                 </div>
             </div>
         </div>
-    </section>
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-lg-8">
-                    <div class="footer-widget-area mt-50">
-                        <a href="#" class="d-block mb-5"><img src="img/core-img/logo1.png" style="width:174px; height:auto;"  alt=""></a>
-                        <p>Monggo kemah adalah website yang bertujuan untuk memberi informasi kepada khalayak ramai tentang destinasi untuk camping. Latar belakang terbentuknya website ini adalah Tugas kuliah. </p>
-                    </div>
-                </div>
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-md-12 col-lg-4">
-                    <div class="footer-widget-area mt-50">
-                        <h6 class="widget-title mb-5">Find us on the map</h6>
-                        <img src="img/bg-img/map-indo.png" class="invert">
-                    </div>
-                </div>
-
-                <!-- Footer Widget Area
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="footer-widget-area mt-50">
-                        <h6 class="widget-title mb-5">Subscribe untuk Mengikuti Kami</h6>
-                        <form action="#" method="post" class="subscribe-form">
-                            <input type="email" name="subscribe-email" id="subscribeemail" placeholder="Your E-mail">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div> -->
-
-                <!-- Copywrite Text -->
-                <div class="col-12">
-                    <div class="copywrite-text mt-30">
-                        <p><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> <a href="#"> Edited By Haff & Roziq</a> 
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+		</section>
+    
+    <?php include 'footer.php'; ?>
 
     
 
 </body>
-<!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-3.3.1.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-    <script>
-        $("#navbar").load("navbar.html");  
-    </script>
+
+<?php include 'script.php' ?>
 
 </html>
