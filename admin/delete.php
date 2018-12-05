@@ -9,8 +9,11 @@
       if (isset($_GET['nrp'])) {
           //query SQL
           $nrp_upd = $_GET['nrp'];
+          $img= $_GET['img'];
           $query = "DELETE FROM destinasi WHERE ID_DESTINASI = '$nrp_upd'"; 
-
+          if (is_file("../img/upload/destinasi/".$img)) {
+            unlink("../img/upload/destinasi/".$img);
+          }
           //eksekusi query
           $result = mysqli_query(connection(),$query);
 

@@ -2,16 +2,18 @@
 
   include ('conn.php'); 
   include ('session.php');
-
   $status = '';
   $result = '';
   //melakukan pengecekan apakah ada form yang dipost
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       if (isset($_GET['id'])) {
           //query SQL
-          $id = $_GET['id'];
-          $query = "DELETE FROM matkul WHERE id = '$id'"; 
-
+          $nrp_upd = $_GET['id'];
+          $img= $_GET['img'];
+          $query = "DELETE FROM perlengkapan WHERE ID_PERLENGKAPAN= '$nrp_upd'"; 
+          if (is_file("../img/upload/perkap/".$img)) {
+            unlink("../img/upload/perkap/".$img);
+          }
           //eksekusi query
           $result = mysqli_query(connection(),$query);
 
@@ -23,6 +25,6 @@
           }
 
           //redirect ke halaman lain
-          header('Location: matkul.php?status='.$status);
+          header('Location: perlengkapan.php?status='.$status);
       }  
   }

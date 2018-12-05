@@ -10,24 +10,16 @@
       $nama = $_POST['nama'];
       $deskripsi = $_POST['deskripsi'];
       $harga = $_POST['harga'];
-      $lokasi = $_POST['lokasi'];
-      $alamat = $_POST['alamat'];
-      $kota = $_POST['kota'];
-      $provinsi = $_POST['provinsi'];
-      $rate = $_POST['rate'];
       $file_tmp = $_FILES['gambar']['tmp_name'];	
       $gambar = $_POST['nama'];
       //ambil gambar
         $ekstensi_diperbolehkan	= array('png','jpg');
         $x = explode('.', $nama);
         $ekstensi = strtolower(end($x));
-
-
-       
-        if (move_uploaded_file($file_tmp, '../img/upload/destinasi/'.$gambar)){
+        if (move_uploaded_file($file_tmp, '../img/upload/perkap/'.$gambar)){
           
           //query SQL
-          $query = "INSERT INTO destinasi (NAMA, DESKRIPSI, HARGA, LOKASI, ALAMAT, KOTA, PROVINSI, GAMBAR, RATE) VALUES('$nama','$deskripsi','$harga','$lokasi','$alamat','$kota','$provinsi','$gambar','$rate')"; 
+          $query = "INSERT INTO perlengkapan (NAMA_PERLENGKAPAN, DESKRIPSI, HARGA, GAMBAR) VALUES('$nama','$deskripsi','$harga','$gambar')"; 
 
           //eksekusi query
           $result = mysqli_query(connection(),$query);
@@ -75,57 +67,25 @@
               }
            ?>
 
-          <h2 style="margin: 30px 0 30px 0;">New Destinasi</h2>
-          <form action="form.php" method="POST" enctype="multipart/form-data">
+          <h2 style="margin: 30px 0 30px 0;">New Perlengkapan</h2>
+          <form action="form_perkap.php" method="POST" enctype="multipart/form-data">
             
             <div class="form-group">
-              <label>NAMA</label>
-              <input type="text" class="form-control" placeholder="Nama Tempat" name="nama" required="required">
+              <label>NAMA PERLENGKAPAN</label>
+              <input type="text" class="form-control" placeholder="Perlengkapan" name="nama" required="required">
             </div>
+
             <div class="form-group">
               <label>DESKRIPSI</label>
               <textarea name="deskripsi" class="form-control" id="deskripsi" cols="30" rows="10"></textarea>
             </div>
             <div class="form-group">
               <label>HARGA</label>
-              <input type="number" class="form-control" placeholder="HTM" name="harga" required="required" min=0 step=1000 value=0>
-            </div>
-            <div class="form-group">
-              <label>LOKASI</label>
-              <select class="form-control" id="lokasi" name="lokasi">
-                <option value="Hutan">Hutan</option>
-                <option value="Gunung">Gunung</option>
-                <option value="Pantai">Pantai</option>
-                <option value="Bumi Perkemahan">Bumi Perkemahan</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>ALAMAT</label>
-              <input type="text" class="form-control" placeholder="Alamat" name="alamat" required="required">
-            </div>
-            <div class="form-group">
-              <label>PROVINSI</label>
-              <select class="form-control" id="provinsi" name="provinsi">
-                <option value="Jawa Timur">JATIM</option>
-                <option value="Jawa Tengah">JATENG</option>
-                <option value="Jawa Barat">JABAR</option>
-                <option value="Yogyakarta">DIY</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>KOTA</label>
-              <input type="text" class="form-control" placeholder="Kota" name="kota" required="required">
-            </div>
+              <input type="number" class="form-control" placeholder="harga" name="harga" required="required" min=0 step=1000 value=0>
             <div class="form-group">
               <label>GAMBAR</label>
               <input type="file" class="form-control" placeholder="" name="gambar" required="required">
-            </div>
-            <div class="form-group">
-              <label>RATE</label>
-              <input type="number" class="form-control" placeholder="Rate" name="rate" required="required" max=5 min=0 step=0.1 value=0>
-            </div>
-            
-            
+            </div>           
             
             <button type="submit" class="btn btn-primary" style="margin-bottom : 20px;">Simpan</button>
           </form>

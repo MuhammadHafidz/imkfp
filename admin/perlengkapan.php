@@ -16,7 +16,7 @@
 
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Pemrograman Web</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Admin Klasik</a>
     </nav>
     <div class="container-fluid">
       <div class="row">
@@ -36,17 +36,17 @@
               }
             }
            ?>
-          <h2 style="margin: 30px 0 30px 0;">Mata Kuliah</h2>
-          <a class="btn btn-outline-success btn-sm" href="form_matkul.php" style="margin-bottom : 20px;">Tambah Data</a>
+          <h2 style="margin: 30px 0 30px 0;">Perlengkapan</h2>
+          <a class="btn btn-outline-success btn-sm" href="form_perkap.php" style="margin-bottom : 20px;">Tambah Data</a>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Nama Matkul</th>
-                  <th>Dosen</th>
-                  <th>Jurusan</th>
-                  <th>Hari</th>
+                  <th>Nama</th>
+                  <th>Harga</th>
+                  <th>Gambar</th>
+                  <th>Deskripsi</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -54,21 +54,21 @@
                 <?php 
                   //proses menampilkan data dari database:
                   //siapkan query SQL
-                  $query = "SELECT * FROM matkul";
+                  $query = "SELECT * FROM perlengkapan";
                   $result = mysqli_query(connection(),$query);
                  ?>
 
                  <?php while($data = mysqli_fetch_array($result)): ?>
                   <tr>
-                    <td><?php echo $data['id'];  ?></td>
-                    <td><?php echo $data['nama_matkul'];  ?></td>
-                    <td><?php echo $data['dosen'];  ?></td>
-                    <td><?php echo $data['jurusan'];  ?></td>
-                    <td><?php echo $data['hari'];  ?></td>
+                    <td><?php echo $data['ID_PERLENGKAPAN'];  ?></td>
+                    <td><?php echo $data['NAMA_PERLENGKAPAN'];  ?></td>
+                    <td><?php echo $data['HARGA'];  ?></td>
+                    <td><?php echo $data['GAMBAR'];  ?></td>
+                    <td><?php echo $data['DESKRIPSI'];  ?></td>
                     <td>
-                      <a href="<?php echo "update_matkul.php?id=".$data['id']; ?>" class="btn btn-outline-warning btn-sm"> Update</a>
+                      <a href="<?php echo "update_perkap.php?id=".$data['ID_PERLENGKAPAN']; ?>" class="btn btn-outline-warning btn-sm"> Update</a>
                       &nbsp;&nbsp;
-                      <a href="<?php echo "delete_matkul.php?id=".$data['id']; ?>" class="btn btn-outline-danger btn-sm"> Delete</a>
+                      <a href="<?php echo "delete_perkap.php?id=".$data['ID_PERLENGKAPAN']."&img=".$data['GAMBAR']; ?>" class="btn btn-outline-danger btn-sm"> Delete</a>
                     </td>
                   </tr>
                  <?php endwhile ?>

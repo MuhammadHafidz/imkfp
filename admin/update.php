@@ -32,19 +32,20 @@
       $provinsi = $_POST['provinsi'];
       $rate = $_POST['rate'];
 
-      if (isset($_POST['ubahgambar'])){
-        $gambar = $_FILES['gambar']['name'];
-        $file_tmp = $_FILES['gambar']['tmp_name'];	
-        move_uploaded_file($file_tmp, '../img/upload/'.$gambar);
-        if (is_file("../img/upload/".$oldgambar)) {
-          unlink("../img/upload/".$oldgambar);
+      if ($_POST['ubahgambar']){
+        $gambar = $_POST['nama'];
+        $file_tmp = $_FILES['gambarbaru']['tmp_name'];	
+        
+        if (is_file("../img/upload/destinasi/".$oldgambar)) {
+          unlink("../img/upload/destinasi/".$oldgambar);
         }
+        move_uploaded_file($file_tmp, '../img/upload/destinasi/'.$gambar);
       }else {
         $gambar = $oldgambar;
       }
      
       //query SQL
-      $sql = "UPDATE DESTINASI SET NAMA='$nama', DESKRIPSI='$deskripsi', HARGA='$harga', LOKASI='$lokasi', ALAMAT='$alamat', KOTA='$kota', PROVINSI='$provinsi', GAMBAR='$gambar', RATE='$rate' WHERE ID_DESTINASI='$id'";
+      $sql = "UPDATE DESTINASI SET NAMA='$nama', DESKRIPSI='$deskripsi', HARGA=$harga, LOKASI='$lokasi', ALAMAT='$alamat', KOTA='$kota', PROVINSI='$provinsi', GAMBAR='$gambar', RATE=$rate WHERE ID_DESTINASI='$id'";
 
       //eksekusi query
       $result = mysqli_query(connection(),$sql);
@@ -84,7 +85,7 @@
        ?>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <h2 style="margin: 30px 0 30px 0;">Update Data Mahasiswa</h2>
+          <h2 style="margin: 30px 0 30px 0;">Update Data Destinasi</h2>
           <form action="update.php" method="POST" enctype="multipart/form-data">
             <?php while($data = mysqli_fetch_array($result)): ?>
 
@@ -105,7 +106,7 @@
 
             <div class="form-group">
               <label>HARGA</label>
-              <input type="number" class="form-control" placeholder="HTM" name="harga" required="required" min=0 step=1000 value=0 value="<?php echo $data['HARGA'];?>">
+              <input type="number" class="form-control" placeholder="HTM" name="harga" required="required" min=0 step=1000 value=<?php echo $data['HARGA'];?>>
             </div>
 
             <div class="form-group">
@@ -140,20 +141,22 @@
 
             <div class="form-group">
               <label>GAMBAR</label> <br>
-              <img src="../img/upload/<?php echo $data['GAMBAR'];?>" alt=" LOOO ILANG" style="width:500px; height:auto" class="img-fluid"><br>
+              <img src="../img/upload/destinasi/<?php echo $data['GAMBAR'];?>" alt=" LOOO ILANG" style="width:500px; height:auto" class="img-fluid"><br>
+            </div>
+
+            <div class="form-group">
+                <label>Ubah Gambar</label>
+                <input type="checkbox" value="ubah" name="ubahgambar"> Cek jika ingin merubah Gambar
             </div>
 
             <div class="form-group">
               <label>GAMBAR BARU</label> 
-              <div>
-                <label><input type="checkbox" value="" name="ubahgambar"> Cek jika ingin merubah Gambar</label>
-              </div>
-              <input type="file" class="form-control" placeholder="" name="gambar">
+              <input type="file" class="form-control" name="gambarbaru" id="gambarbaru">
             </div>
 
             <div class="form-group">
               <label>RATE</label>
-              <input type="number" class="form-control" placeholder="Rate" name="rate" required="required" max=5 min=0 step=0.1 value=0 value="<?php echo $data['RATE'];?>">
+              <input type="number" class="form-control" placeholder="Rate" name="rate" required="required" max=5 min=0 step=0.1  value=<?php echo $data['RATE'];?>>
             </div>
 
 

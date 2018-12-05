@@ -79,7 +79,7 @@
                     <td>
                       <a href="<?php echo "update.php?nrp=".$data['ID_DESTINASI']; ?>" class="btn btn-outline-warning btn-sm"> Update</a>
                       &nbsp;&nbsp;
-                      <a href="<?php echo "delete.php?nrp=".$data['ID_DESTINASI']; ?>" class="btn btn-outline-danger btn-sm"> Delete</a>
+                      <a href="<?php echo "delete.php?nrp=".$data['ID_DESTINASI']."&img=".$data['GAMBAR']; ?>" class="btn btn-outline-danger btn-sm"> Delete</a>
                     </td>
                   </tr>
                  <?php endwhile ?>
