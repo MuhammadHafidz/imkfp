@@ -18,10 +18,29 @@
 
 	<!-- Core Stylesheet -->
 	<link rel="stylesheet" href="style.css">
+	<?php include 'script.php' ?>
+
+	<script type="text/javascript">   
+		function passIDModal(id){
+			$.ajax({
+				type : "GET",
+                    url  : "modal_content.php",
+                    dataType : "JSON",
+                    data : {id:id},
+                    success: function(data){
+                        $.each(data,function(ID_DESTINASI,NAMA,DESKRIPSI,HARGA,LOKASI,ALAMAT,KOTA,PROVINSI,GAMBAR,RATE){
+                            $('#exampleModal').modal('show');
+                            $('#exampleModalLabel').text(data.NAMA);
+                            
+						});
+                    }
+			});
+		}
+        </script>
 
 </head>
 
-<body>
+<body >
 	<!-- Preloader -->
 	<div class="preloader d-flex align-items-center justify-content-center">
 		<div class="cssload-container">
@@ -64,7 +83,7 @@
 			?>
 				<!-- Single Rooms Area -->
 				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
+					<div class="single-rooms-area wow fadeInUp "  data-wow-delay="100ms">
 						<!-- Thumbnail -->
 						<!-- $data['ID'] -->
 						<div class="bg-thumbnail bg-img"style="background-image: url(img/upload/destinasi/<?php echo $data['GAMBAR']; ?>);">
@@ -82,7 +101,9 @@
 							</p>
 						</div>
 						<!-- Tanyakan Sekarang -->
-						<button id="triggerModal" onclick="passIDModal(<?php echo $data['ID_DESTINASI']?>)" type="button" data-toggle="modal" data-target="#exampleModal" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</button>
+						<button  onclick="passIDModal(<?php echo $data['ID_DESTINASI']; ?>)" type="button" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</button>
+						
+						
 					</div>
 				</div>
 				
@@ -95,6 +116,7 @@
 							<ul class="">
 								<li class="book-room-btn btn palatin-btn pull-right"><a class="" href="#" style="color:white!important">Lainya</a></li>
 							</ul>
+							
 						</nav>
 					</div>
 				</div>
@@ -112,10 +134,10 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header color">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<h5 class="modal-title" id="exampleModalLabel"></h5>
 				</div>
-				<div class="modal-body">
-					<?php include 'modal_content.php' ?>
+				<div class="modal-body" id="showdata">
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -129,26 +151,25 @@
 	<p></p>	
 	<?php include 'footer.php'; ?>
 
-</body>
-<?php include 'script.php' ?>
-<script>
-	function passIDModal(idData) {
-		
-		var ada = "<?php contentModal(); ?>";
-		alert(ada);
-	}
-</script>
 <script type="text/javascript">
-	$(document).ready(function(){
-			$("triggerModal").click(function(){
-					$.ajax({
-							type: 'POST',
-							url: 'modal_content.php',
-							success: function(coba) {
-								alert(coba);
-							}
-					});
-			});
+		function coba(){
+				alert('OPO');
+				location.reload(); 
+				// var id=$(.triggerModal).attr('data');
+				$.ajax({
+						type: 'GET',
+						url: 'modal_content.php?id='id,
+						success: function(coba) {
+							alert(coba);
+						}
+				});
+			}
+		$(document).ready(function(){
+			
+
+			
 	});
 </script>
+</body>
+
 </html>

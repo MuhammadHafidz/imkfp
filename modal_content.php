@@ -1,16 +1,13 @@
 <?php 
 
-// include 'admin/conn.php';
-  $selectedID = 4;
+include 'admin/conn.php';
+  // $selectedID = $_GET['id'];
+  $selectedID = $_GET['id'];
   $dataDestinasi = "SELECT * FROM destinasi WHERE ID_DESTINASI=$selectedID";
   $getData = mysqli_query(connection(),$dataDestinasi);
 
-  while($data = mysqli_fetch_array($getData)){
-  $array[]=$data;
-  }
-  echo json_encode($array);
+  $data = mysqli_fetch_array($getData);
   // $selectedID ????
-
-   
   
-?>
+  
+  echo json_encode($data);?>
