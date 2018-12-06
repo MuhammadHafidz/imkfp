@@ -7,8 +7,9 @@
       <li class="nav-item">
         <a class="nav-link" href="perlengkapan.php">Data Perlengkapan</a>
       </li>
+      <hr>
       <li class="nav-item">
-        <a class="nav-link" href="logout.php">Logout</a>
+        <a class="nav-link" href="logout.php"><button class="btn btn-danger btn-block">Logout</button></a>
       </li>
     </ul>
   </div>

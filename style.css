@@ -1630,4 +1630,24 @@ padding: 10px 17px;
 font-size: 27px;
 }
 
+.recomendation {
+  margin-bottom: 40px;
+}
+.recomendation span { 
+  font-size: 30px;
+  border: 3px solid #16A085;
+  padding: 5px;
+  color: #16A085;
+}
+
+.modal-content {
+  border: 2px solid white;
+}
+.color {
+  background-color: #16A085;
+}
+.color .modal-title {
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */

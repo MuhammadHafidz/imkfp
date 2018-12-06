@@ -37,7 +37,7 @@
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/ranu.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/hutan.jpg);"></div>
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-9">

@@ -63,6 +63,7 @@
                   //siapkan query SQL
                   $query = "SELECT * FROM destinasi";
                   $result = mysqli_query(connection(),$query);
+                  
                  ?>
 
                  <?php while($data = mysqli_fetch_array($result)): ?>

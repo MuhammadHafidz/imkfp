@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2018 at 01:23 PM
+-- Generation Time: Dec 06, 2018 at 01:07 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -47,27 +47,12 @@ CREATE TABLE `destinasi` (
 --
 
 INSERT INTO `destinasi` (`ID_DESTINASI`, `NAMA`, `DESKRIPSI`, `HARGA`, `LOKASI`, `ALAMAT`, `KOTA`, `PROVINSI`, `GAMBAR`, `TANGGAL`, `RATE`) VALUES
-(1, 'Gunung Bromo', '\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ', 150000, 'Gunung', 'Lumajang malang probolinggo', 'Lumajang', 'JAWA TIMUR', '', '2018-11-15 06:00:39', 5);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gambar`
---
-
-CREATE TABLE `gambar` (
-  `ID_GAMBAR` int(11) NOT NULL,
-  `ID_DESTINASI` int(11) NOT NULL,
-  `JUDUL_GAMBAR` varchar(1024) DEFAULT NULL,
-  `LOKASI_GAMBAR` varchar(1024) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gambar`
---
-
-INSERT INTO `gambar` (`ID_GAMBAR`, `ID_DESTINASI`, `JUDUL_GAMBAR`, `LOKASI_GAMBAR`) VALUES
-(1, 1, 'Bromo-1', NULL);
+(4, 'Ranu Kumbolo', NULL, 100000, 'Gunung', NULL, 'Tulung Agung', 'Jawa Timur', 'ranu', '2018-12-06 05:03:41', 4.6),
+(5, 'Kondang Merak', 'Pantai Selatan Malang yang indah', 99000, 'Pantai', 'Pantai selatan ', 'Malang', 'Jawa Timur', 'kondang-merak', '2018-12-06 05:07:20', 4),
+(6, 'Bale Kambang', 'Pantai Selatan malang dengan sebutan Kuta-nya Malang', 112000, 'Pantai', 'Pantai selatan malang', 'Malang', 'Jawa Timur', 'bale', '2018-12-06 05:07:20', 5),
+(7, 'Gunung Kelud', NULL, 10000, 'Gunung', NULL, 'Kediri', 'Jawa Timur', 'kelud', '2018-12-06 05:09:48', 3.9),
+(8, 'Mandala Wangi', 'Tempatnya indah, lingkunganya bersahabat, dan lebih cocok lagi tempat ini dapat digunakan untuk camping keluarga.', 27500, 'Bumi Perkemahan', NULL, 'Tangerang', 'Banten', 'mandalawangi', '2018-12-06 05:13:34', 4.6),
+(9, 'Gunung Papandayan', 'Bogor punya Cerita', 40000, 'Gunung', NULL, 'Bogor', 'Jawa Barat', 'papandayan.jpg', '2018-12-06 05:15:26', 4);
 
 -- --------------------------------------------------------
 
@@ -77,7 +62,6 @@ INSERT INTO `gambar` (`ID_GAMBAR`, `ID_DESTINASI`, `JUDUL_GAMBAR`, `LOKASI_GAMBA
 
 CREATE TABLE `perlengkapan` (
   `ID_PERLENGKAPAN` int(11) NOT NULL,
-  `ID_DESTINASI` int(11) DEFAULT NULL,
   `NAMA_PERLENGKAPAN` varchar(1024) DEFAULT NULL,
   `HARGA` decimal(11,0) DEFAULT NULL,
   `GAMBAR` varchar(1024) DEFAULT NULL,
@@ -88,8 +72,13 @@ CREATE TABLE `perlengkapan` (
 -- Dumping data for table `perlengkapan`
 --
 
-INSERT INTO `perlengkapan` (`ID_PERLENGKAPAN`, `ID_DESTINASI`, `NAMA_PERLENGKAPAN`, `HARGA`, `GAMBAR`, `DESKRIPSI`) VALUES
-(1, NULL, 'Tenda 4x6', '12000', NULL, 'tenda 12000 per malam');
+INSERT INTO `perlengkapan` (`ID_PERLENGKAPAN`, `NAMA_PERLENGKAPAN`, `HARGA`, `GAMBAR`, `DESKRIPSI`) VALUES
+(4, 'Tenda', '20000', 'tenda-camping-1', 'Muat 10 orang'),
+(5, 'Barak', '99000', 'tenda-peleton', NULL),
+(6, 'Tenda Lucu', '15000', 'tenda-camping-4', 'Kapasitas 5 orang'),
+(7, 'Kamera', '30000', 'kamera1', 'Canon Eos 77D'),
+(8, 'Carrier Consina', '30000', 'tas-75-liter', '75 Liter'),
+(9, 'Matras', '10000', 'matras', NULL);
 
 -- --------------------------------------------------------
 
@@ -121,20 +110,11 @@ ALTER TABLE `destinasi`
   ADD UNIQUE KEY `DESTINASI_PK` (`ID_DESTINASI`);
 
 --
--- Indexes for table `gambar`
---
-ALTER TABLE `gambar`
-  ADD PRIMARY KEY (`ID_GAMBAR`),
-  ADD UNIQUE KEY `GAMBAR_PK` (`ID_GAMBAR`),
-  ADD KEY `HAVE_FK` (`ID_DESTINASI`);
-
---
 -- Indexes for table `perlengkapan`
 --
 ALTER TABLE `perlengkapan`
   ADD PRIMARY KEY (`ID_PERLENGKAPAN`),
-  ADD UNIQUE KEY `PERLENGKAPAN_PK` (`ID_PERLENGKAPAN`),
-  ADD KEY `MENYEWAKAN_FK` (`ID_DESTINASI`);
+  ADD UNIQUE KEY `PERLENGKAPAN_PK` (`ID_PERLENGKAPAN`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -144,35 +124,13 @@ ALTER TABLE `perlengkapan`
 -- AUTO_INCREMENT for table `destinasi`
 --
 ALTER TABLE `destinasi`
-  MODIFY `ID_DESTINASI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `gambar`
---
-ALTER TABLE `gambar`
-  MODIFY `ID_GAMBAR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_DESTINASI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `perlengkapan`
 --
 ALTER TABLE `perlengkapan`
-  MODIFY `ID_PERLENGKAPAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `gambar`
---
-ALTER TABLE `gambar`
-  ADD CONSTRAINT `FK_GAMBAR_HAVE_DESTINAS` FOREIGN KEY (`ID_DESTINASI`) REFERENCES `destinasi` (`ID_DESTINASI`);
-
---
--- Constraints for table `perlengkapan`
---
-ALTER TABLE `perlengkapan`
-  ADD CONSTRAINT `FK_PERLENGK_MENYEWAKA_DESTINAS` FOREIGN KEY (`ID_DESTINASI`) REFERENCES `destinasi` (`ID_DESTINASI`);
+  MODIFY `ID_PERLENGKAPAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

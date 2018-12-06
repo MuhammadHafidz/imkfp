@@ -56,114 +56,30 @@
                 </div>
     
                 <div class="row">
-    
+                <?php 
+                    include 'admin/conn.php';
+                    $query = "select * from perlengkapan"; 
+                    $result = mysqli_query(connection(),$query);
+                    while($data = mysqli_fetch_array($result)):
+                ?>
                     <!-- Single Rooms Area -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
                             <!-- Thumbnail -->
-                            <div class="bg-thumbnail bg-img" style="background-image: url(img/perkap-img/tenda-camping-1.jpg);"></div>
+                            <div class="bg-thumbnail bg-img" style="background-image: url(img/upload/perkap/<?php echo $data['GAMBAR']; ?>);"></div>
                             <!-- Price -->
-                            <p class="price-from">Rp.20k/day</p>
+                            <p class="price-from">Rp.<?php echo $data['HARGA']; ?>/day</p>
                             <!-- Rooms Text -->
                             <div class="rooms-text">
                                 <div class="line"></div>
-                                <h4>Tenda</h4>
-                                <p>Muat 10 orang</p>
+                                <h4><?php echo $data['NAMA_PERLENGKAPAN']; ?></h4>
+                                <p><?php echo $data['DESKRIPSI']; ?></p>
                             </div>
                             <!-- Tanyakan Sekarang -->
                             <a href="#" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</a>
                         </div>
                     </div>
-    
-                    <!-- Single Rooms Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="single-rooms-area wow fadeInUp" data-wow-delay="200ms">
-                            <!-- Thumbnail -->
-                            <div class="bg-thumbnail bg-img" style="background-image: url(img/perkap-img/tenda-peleton.jpg);"></div>
-                            <!-- Price -->
-                            <p class="price-from">Rp.99k/day</p>
-                            <!-- Rooms Text -->
-                            <div class="rooms-text">
-                                <div class="line"></div>
-                                <h4>Barak</h4>
-                                <p></p>
-                            </div>
-                            <!-- Tanyakan Sekarang -->
-                            <a href="#" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</a>
-                        </div>
-                    </div>
-    
-                    <!-- Single Rooms Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="single-rooms-area wow fadeInUp" data-wow-delay="300ms">
-                            <!-- Thumbnail -->
-                            <div class="bg-thumbnail bg-img" style="background-image: url(img/perkap-img/tenda-camping-4.jpg);"></div>
-                            <!-- Price -->
-                            <p class="price-from">Rp.15k/day</p>
-                            <!-- Rooms Text -->
-                            <div class="rooms-text">
-                                <div class="line"></div>
-                                <h4>Tenda Lucu</h4>
-                                <p>Kapasitas 5 orang</p>
-                            </div>
-                            <!-- Tanyakan Sekarang -->
-                            <a href="#" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</a>
-                        </div>
-                    </div>
-    
-                    <!-- Single Rooms Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
-                            <!-- Thumbnail -->
-                            <div class="bg-thumbnail bg-img" style="background-image: url(img/perkap-img/kamera1.jpg);"></div>
-                            <!-- Price -->
-                            <p class="price-from">Rp.30k/day</p>
-                            <!-- Rooms Text -->
-                            <div class="rooms-text">
-                                <div class="line"></div>
-                                <h4>Kamera</h4>
-                                <p>Canon Eos 77D</p>
-                            </div>
-                            <!-- Tanyakan Sekarang -->
-                            <a href="#" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</a>
-                        </div>
-                    </div>
-    
-                    <!-- Single Rooms Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="single-rooms-area wow fadeInUp" data-wow-delay="200ms">
-                            <!-- Thumbnail -->
-                            <div class="bg-thumbnail bg-img" style="background-image: url(img/perkap-img/tas-75-liter.jpg);"></div>
-                            <!-- Price -->
-                            <p class="price-from">Rp.30k/day</p>
-                            <!-- Rooms Text -->
-                            <div class="rooms-text">
-                                <div class="line"></div>
-                                <h4>Carrier Consina</h4>
-                                <p>75 Liter</p>
-                            </div>
-                            <!-- Tanyakan Sekarang -->
-                            <a href="#" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</a>
-                        </div>
-                    </div>
-    
-                    <!-- Single Rooms Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="single-rooms-area wow fadeInUp" data-wow-delay="300ms">
-                            <!-- Thumbnail -->
-                            <div class="bg-thumbnail bg-img" style="background-image: url(img/perkap-img/matras.jpg);"></div>
-                            <!-- Price -->
-                            <p class="price-from">Rp.10k/day</p>
-                            <!-- Rooms Text -->
-                            <div class="rooms-text">
-                                <div class="line"></div>
-                                <h4>Matras</h4>
-                                <p></p>
-                            </div>
-                            <!-- Tanyakan Sekarang -->
-                            <a href="#" class="book-room-btn btn palatin-btn">Tanyakan Sekarang</a>
-                        </div>
-                    </div>
+                    <?php endwhile ?>
     
                     <div class="col-12">
                         <!-- Pagination -->
