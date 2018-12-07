@@ -1,0 +1,21 @@
+.symbol {
+  display: inline-block;
+  border-radius: 50%;
+  border: 5px double white;
+  width: 30px;
+  height: 30px;
+}
+
+.symbol-empty {
+  background-color: #fff;
+}
+
+.symbol-filled {
+  background-color: #fff;
+}
+
+.yellow {
+  color: #F5B13A;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
