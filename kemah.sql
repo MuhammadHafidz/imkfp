@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2018 at 01:07 AM
+-- Generation Time: Dec 07, 2018 at 03:49 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -52,7 +52,7 @@ INSERT INTO `destinasi` (`ID_DESTINASI`, `NAMA`, `DESKRIPSI`, `HARGA`, `LOKASI`,
 (6, 'Bale Kambang', 'Pantai Selatan malang dengan sebutan Kuta-nya Malang', 112000, 'Pantai', 'Pantai selatan malang', 'Malang', 'Jawa Timur', 'bale', '2018-12-06 05:07:20', 5),
 (7, 'Gunung Kelud', NULL, 10000, 'Gunung', NULL, 'Kediri', 'Jawa Timur', 'kelud', '2018-12-06 05:09:48', 3.9),
 (8, 'Mandala Wangi', 'Tempatnya indah, lingkunganya bersahabat, dan lebih cocok lagi tempat ini dapat digunakan untuk camping keluarga.', 27500, 'Bumi Perkemahan', NULL, 'Tangerang', 'Banten', 'mandalawangi', '2018-12-06 05:13:34', 4.6),
-(9, 'Gunung Papandayan', 'Bogor punya Cerita', 40000, 'Gunung', NULL, 'Bogor', 'Jawa Barat', 'papandayan.jpg', '2018-12-06 05:15:26', 4);
+(9, 'Gunung Papandayan', 'Bogor punya Cerita', 40000, 'Gunung', NULL, 'Bogor', 'Jawa Barat', 'papandayan', '2018-12-06 05:15:26', 4);
 
 -- --------------------------------------------------------
 
