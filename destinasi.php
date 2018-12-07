@@ -175,7 +175,7 @@
 					$('#d_kota').html(data.KOTA);
 					$('#rateStar').val(data.RATE);
 					$('#rateText').text(data.RATE);
-					$('#carigambar').attr("href", "https://www.google.com/search?q=Kemah" + data.NAMA + "&source=lnms&tbm=isch",
+					$('#carigambar').attr("href", "https://www.google.com/search?q=Kemah " + data.NAMA + "&source=lnms&tbm=isch",
 						"_blank");
 				});
 			}

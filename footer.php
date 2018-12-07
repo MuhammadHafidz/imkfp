@@ -54,9 +54,20 @@
 
 
     <div id="search">
-				<button type="button" class="close">×</button>
-				<form>
-						<input type="search" value="" placeholder="type keyword(s) here" />
-						<button type="submit" class="btn btn-primary">Search</button>
-				</form>
-		</div>
+            <button type="button" class="close">×</button>
+            
+                    <input type="search" value="" id="inisearch" placeholder="type keyword(s) here" />
+                    <button type="submit" onclick="openInNewTab()" class="btn btn-primary">Search</button>
+            
+    </div>
+    
+    <script type="text/javascript">
+    function openInNewTab() {
+        var cari = $('#inisearch').val(); 
+        var url = "https://www.google.com/search?q=" +cari;
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+    </script>
+    
+    
